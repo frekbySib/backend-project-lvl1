@@ -13,7 +13,7 @@ export const evenGame = (userName) => {
   let answer;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   while (count < 3) {
-    const randomNumber = Math.floor(Math.random() * 10 + 1);
+    const randomNumber = Math.floor(Math.random() * 20 + 1);
     console.log(`Question: ${randomNumber}`);
     answer = readlineSync.question("Your answer: ");
     if (answer === "yes" && randomNumber % 2 === 0) {
