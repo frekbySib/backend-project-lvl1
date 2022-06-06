@@ -4,8 +4,8 @@ import {
   getAnswer,
   reportGoodStep,
   reportFail,
-  reportWin
-} from "./index.js";
+  reportWin,
+} from '../src/index.js';
 
 export const evenGame = () => {
   const userName = greeting();
@@ -18,16 +18,16 @@ export const evenGame = () => {
     sendQuestion(randomNum);
     ans = getAnswer();
     if (
-      (ans === "yes" && randomNum % 2 === 0) ||
-      (ans === "no" && randomNum % 2 !== 0)
+      (ans === 'yes' && randomNum % 2 === 0) ||
+      (ans === 'no' && randomNum % 2 !== 0)
     ) {
       reportGoodStep();
       goodCount += 1;
     } else {
-      if (ans === "yes") {
-        reportFail("yes", "no", userName);
+      if (ans === 'yes') {
+        reportFail('yes', 'no', userName);
       } else {
-        reportFail("no", "yes", userName);
+        reportFail('no', 'yes', userName);
         break;
       }
     }

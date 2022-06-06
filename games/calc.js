@@ -5,7 +5,7 @@ import {
   reportGoodStep,
   reportFail,
   reportWin,
-} from './index.js';
+} from '../src/index.js';
 
 export const calc = () => {
   let count = 0;
