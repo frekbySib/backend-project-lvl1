@@ -5,7 +5,17 @@
 
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/test_coverage"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage" /></a>
 
-<h2>Игры разума: Проверка на чётность</h2>
+<h2>Игра: Проверка на чётность</h2>
 https://asciinema.org/a/gg4ACHo8cjyveSVjUhB0Q3RfY
-<p>Необходимо реализовать игру "Проверка на чётность". Суть игры в следующем: пользователю показывается случайное число. И ему нужно ответить yes, если число чётное, или no — если нечётное</p>
-<p>Игрок может последовательно три раза дать верный ответ и выиграть. Проиграть проще - нужна всего одна неудача. Дерзайте! :-)</p>
+
+<h2>Игра: "Калькулятор"</h2>
+<a href='https://asciinema.org/a/3tvWM7b1SNXD90oxWblEoV0wn'>Посмотреть ход игры</a>
+
+<h2>Игра: "НОД"</h2>
+<a href='https://asciinema.org/a/KVEUDwVxuJcqQgki81oK3cgEq'>Посмотреть ход игры</a>
+
+<h2>Игра: "Арифметическая прогрессия"</h2>
+<a href='https://asciinema.org/a/HgjcHb906KkI8Ew4sctLIdNXu'>Посмотреть ход игры</a>
+
+<h2>Игра: "Простое ли число?"</h2>
+<a href='https://asciinema.org/a/3p8Nt0qAHzIvITDgB1GB7gYp6'>Посмотреть ход игры</a>
