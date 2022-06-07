@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-export const gcdGame = () => {
+const gcdGame = () => {
   let count = 0;
   let goodCount = 0;
   let ans;
@@ -35,9 +35,10 @@ export const gcdGame = () => {
       reportFail(ans, nod, userName);
       break;
     }
-    count++;
+    count += 1;
   }
   if (goodCount === 3) {
     reportWin(userName);
   }
 };
+export default gcdGame;

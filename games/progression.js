@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-export const progressionGame = () => {
+const progressionGame = () => {
   let count = 0;
   let goodCount = 0;
   let ans;
@@ -45,9 +45,10 @@ export const progressionGame = () => {
       reportFail(ans, item, userName);
       break;
     }
-    count++;
+    count += 1;
   }
   if (goodCount === 3) {
     reportWin(userName);
   }
 };
+export default progressionGame;

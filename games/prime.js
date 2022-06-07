@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-export const primeGame = () => {
+const primeGame = () => {
   const primeNum = [
     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
   ];
@@ -44,9 +44,10 @@ export const primeGame = () => {
       reportFail(ans, ans === 'yes' ? 'no' : 'yes', userName);
       break;
     }
-    count++;
+    count += 1;
   }
   if (goodCount === 3) {
     reportWin(userName);
   }
 };
+export default primeGame;

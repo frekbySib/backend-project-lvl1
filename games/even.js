@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-export const evenGame = () => {
+const evenGame = () => {
   const userName = greeting();
   let count = 0;
   let goodCount = 0;
@@ -31,9 +31,10 @@ export const evenGame = () => {
         break;
       }
     }
-    count++;
+    count += 1;
   }
   if (goodCount === 3) {
     reportWin(userName);
   }
 };
+export default evenGame;

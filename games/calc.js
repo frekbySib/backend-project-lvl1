@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-export const calc = () => {
+const calc = () => {
   let count = 0;
   let goodCount = 0;
   const signs = ['+', '-', '*'];
@@ -42,9 +42,10 @@ export const calc = () => {
       reportFail(ans, result, userName);
       break;
     }
-    count++;
+    count += 1;
   }
   if (goodCount === 3) {
     reportWin(userName);
   }
 };
+export default calc;
