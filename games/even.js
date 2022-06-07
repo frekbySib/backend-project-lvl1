@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-const evenGame = () => {
+export const evenGame = () => {
   const userName = greeting();
   let count = 0;
   let goodCount = 0;
@@ -18,7 +18,7 @@ const evenGame = () => {
     sendQuestion(randomNum);
     ans = getAnswer();
     if (!['yes', 'no'].includes(ans)) {
-      reportFail(ans, (randomNum % 2 === 0 ? 'yes' : 'no'), userName);
+      reportFail(ans, randomNum % 2 === 0 ? 'yes' : 'no', userName);
       break;
     }
     if (
@@ -41,4 +41,3 @@ const evenGame = () => {
     reportWin(userName);
   }
 };
-export default evenGame;
