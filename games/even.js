@@ -17,6 +17,10 @@ const evenGame = () => {
     const randomNum = Math.floor(Math.random() * 20 + 1);
     sendQuestion(randomNum);
     ans = getAnswer();
+    if (!['yes', 'no'].includes(ans)) {
+      reportFail(ans, (randomNum % 2 === 0 ? 'yes' : 'no'), userName);
+      break;
+    }
     if (
       (ans === 'yes' && randomNum % 2 === 0) ||
       (ans === 'no' && randomNum % 2 !== 0)
