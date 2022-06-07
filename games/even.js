@@ -31,7 +31,7 @@ const evenGame = () => {
         break;
       }
     }
-    count += 1;
+    count++;
   }
   if (goodCount === 3) {
     reportWin(userName);
