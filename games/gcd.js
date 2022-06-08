@@ -20,10 +20,10 @@ const gcdGame = () => {
     sendQuestion(`${x} ${y}`);
     ans = getAnswer();
 
-    const getNod = (x, y) => {
-      if (y > x) return getNod(y, x);
-      if (!y) return x;
-      return getNod(y, x % y);
+    const getNod = (arg1, arg2) => {
+      if (arg2 > arg1) return getNod(arg2, arg1);
+      if (!arg2) return arg1;
+      return getNod(arg2, arg1 % arg2);
     };
 
     const nod = getNod(x, y);

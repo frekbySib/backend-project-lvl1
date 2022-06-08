@@ -9,14 +9,10 @@ export const greeting = () => {
 };
 
 // Задать вопрос игроку.
-export const sendQuestion = (str) => {
-  return console.log(`Question: ${str}`);
-};
+export const sendQuestion = (str) => console.log(`Question: ${str}`);
 
 // Получить ответ на вопрос от игрока
-export const getAnswer = () => {
-  return readlineSync.question('Your answer: ');
-};
+export const getAnswer = () => readlineSync.question('Your answer: ');
 
 // Уведомить о корректном ответе
 export const reportGoodStep = () => {
@@ -26,7 +22,7 @@ export const reportGoodStep = () => {
 // Расстроить
 export const reportFail = (atr1, atr2, userName) => {
   console.log(
-    `'${atr1}' is wrong answer ;(. Correct answer was '${atr2}'.\nLet's try again, ${userName}!`
+    `'${atr1}' is wrong answer ;(. Correct answer was '${atr2}'.\nLet's try again, ${userName}!`,
   );
 };
 

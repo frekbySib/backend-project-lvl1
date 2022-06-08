@@ -18,22 +18,16 @@ const progressionGame = () => {
     const randomNum = Math.floor(Math.random() * 20 + 1);
     const progStep = Math.floor(Math.random() * 10 + 1);
     const randomIndex = Math.floor(Math.random() * 10);
-
-    const progressionArray = (randomNum, progStep) => {
-      let array = [randomNum];
-      for (let i = 0; i <= 9; i += 1) {
-        if (array.length === 10) {
-          return array;
-        } else {
-          let nextNumber = (randomNum += progStep);
-          array.push(nextNumber);
-        }
-      }
-    };
-
-    const gameArray = progressionArray(randomNum, progStep);
+    const gameArray = [];
+    gameArray.push(randomNum);
+    while (gameArray.length < 10) {
+      let lastEl = gameArray.at(-1);
+      gameArray.push((lastEl += progStep));
+    }
+    console.log(gameArray);
     const item = gameArray[randomIndex];
     gameArray[randomIndex] = '..';
+    console.log(gameArray);
 
     sendQuestion(gameArray.join(' '));
     ans = getAnswer();

@@ -7,7 +7,7 @@ import {
   reportWin,
 } from '../src/index.js';
 
-export const evenGame = () => {
+const evenGame = () => {
   const userName = greeting();
   let count = 0;
   let goodCount = 0;
@@ -22,23 +22,21 @@ export const evenGame = () => {
       break;
     }
     if (
-      (ans === 'yes' && randomNum % 2 === 0) ||
-      (ans === 'no' && randomNum % 2 !== 0)
+      (ans === 'yes' && randomNum % 2 === 0) || (ans === 'no' && randomNum % 2 !== 0)
     ) {
       reportGoodStep();
       goodCount += 1;
+    } else if (ans === 'yes') {
+      reportFail('yes', 'no', userName);
+      break;
     } else {
-      if (ans === 'yes') {
-        reportFail('yes', 'no', userName);
-        break;
-      } else {
-        reportFail('no', 'yes', userName);
-        break;
-      }
+      reportFail('no', 'yes', userName);
+      break;
     }
-    count++;
+    count += 1;
   }
   if (goodCount === 3) {
     reportWin(userName);
   }
 };
+export default evenGame;
