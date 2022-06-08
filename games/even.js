@@ -30,6 +30,7 @@ export const evenGame = () => {
     } else {
       if (ans === 'yes') {
         reportFail('yes', 'no', userName);
+        break;
       } else {
         reportFail('no', 'yes', userName);
         break;
