@@ -24,10 +24,9 @@ const progressionGame = () => {
       let lastEl = gameArray.at(-1);
       gameArray.push((lastEl += progStep));
     }
-    console.log(gameArray);
+
     const item = gameArray[randomIndex];
     gameArray[randomIndex] = '..';
-    console.log(gameArray);
 
     sendQuestion(gameArray.join(' '));
     ans = getAnswer();
