@@ -23,7 +23,6 @@ const isPrime = (num) => {
 const primeGame = () => {
   const userName = greeting();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
   for (let x = 0; x < 3; x += 1) {
     const num = getRandomNum(1, 10);
     sendQuestion(num);
