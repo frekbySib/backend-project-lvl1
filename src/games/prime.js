@@ -21,18 +21,22 @@ const isPrime = (num) => {
 };
 
 const primeGame = () => {
+  let goodCount = 0;
   const userName = greeting();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  for (let x = 0; x < 3; x += 1) {
+
+  while (goodCount < 3) {
     const num = getRandomNum(1, 10);
     sendQuestion(num);
     const userAnswer = getAnswer();
     const correctAnswer = isPrime(num) ? 'yes' : 'no';
+
     if (userAnswer !== correctAnswer) {
       reportFail(userAnswer, correctAnswer, userName);
       return;
     }
     reportGoodStep();
+    goodCount += 1;
   }
   reportWin(userName);
 };
