@@ -5,7 +5,8 @@ import {
   reportGoodStep,
   reportFail,
   reportWin,
-} from '../src/index.js';
+} from '../index.js';
+import getRandomNum from '../getRandomNum.js';
 
 const calc = () => {
   let count = 0;
@@ -15,9 +16,9 @@ const calc = () => {
   const userName = greeting();
   console.log('What is the result of the expression?');
   while (count < 3) {
-    const randomNum1 = Math.floor(Math.random() * 20 + 1);
-    const randomNum2 = Math.floor(Math.random() * 20 + 1);
-    const sign = signs[Math.floor(Math.random() * signs.length)];
+    const randomNum1 = getRandomNum(1, 10);
+    const randomNum2 = getRandomNum(1, 10);
+    const sign = signs[getRandomNum(0, 2)];
     sendQuestion(`${randomNum1} ${sign} ${randomNum2}`);
     ans = getAnswer();
     let result = 0;

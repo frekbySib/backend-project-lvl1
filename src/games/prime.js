@@ -5,7 +5,7 @@ import {
   reportGoodStep,
   reportFail,
   reportWin,
-} from '../src/index.js';
+} from '../index.js';
 
 const primeGame = () => {
   const primeNum = [

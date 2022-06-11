@@ -5,7 +5,8 @@ import {
   reportGoodStep,
   reportFail,
   reportWin,
-} from '../src/index.js';
+} from '../index.js';
+import getRandomNum from '../getRandomNum.js';
 
 const progressionGame = () => {
   let count = 0;
@@ -15,9 +16,9 @@ const progressionGame = () => {
   console.log('What number is missing in the progression?');
 
   while (count < 3) {
-    const randomNum = Math.floor(Math.random() * 20 + 1);
-    const progStep = Math.floor(Math.random() * 10 + 1);
-    const randomIndex = Math.floor(Math.random() * 10);
+    const randomNum = getRandomNum(1, 20);
+    const progStep = getRandomNum(1, 10);
+    const randomIndex = getRandomNum(0, 9);
     const gameArray = [];
     gameArray.push(randomNum);
     while (gameArray.length < 10) {

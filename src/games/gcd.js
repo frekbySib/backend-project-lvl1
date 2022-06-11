@@ -5,7 +5,8 @@ import {
   reportGoodStep,
   reportFail,
   reportWin,
-} from '../src/index.js';
+} from '../index.js';
+import getRandomNum from '../getRandomNum.js';
 
 const gcdGame = () => {
   let count = 0;
@@ -15,8 +16,8 @@ const gcdGame = () => {
   console.log('Find the greatest common divisor of given numbers.');
 
   while (count < 3) {
-    const x = Math.floor(Math.random() * 20 + 1);
-    const y = Math.floor(Math.random() * 20 + 1);
+    const x = getRandomNum(1, 20);
+    const y = getRandomNum(1, 20);
     sendQuestion(`${x} ${y}`);
     ans = getAnswer();
 

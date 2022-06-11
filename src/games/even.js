@@ -5,7 +5,8 @@ import {
   reportGoodStep,
   reportFail,
   reportWin,
-} from '../src/index.js';
+} from '../index.js';
+import getRandomNum from '../getRandomNum.js';
 
 const evenGame = () => {
   const userName = greeting();
@@ -14,7 +15,7 @@ const evenGame = () => {
   let ans;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   while (count < 3) {
-    const randomNum = Math.floor(Math.random() * 20 + 1);
+    const randomNum = getRandomNum(1, 20);
     sendQuestion(randomNum);
     ans = getAnswer();
     if (!['yes', 'no'].includes(ans)) {
