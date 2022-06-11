@@ -8,36 +8,24 @@ import {
 } from '../index.js';
 import getRandomNum from '../getRandomNum.js';
 
+const isEven = (num) => num % 2 === 0;
+
 const evenGame = () => {
   const userName = greeting();
-  let count = 0;
-  let goodCount = 0;
-  let ans;
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  while (count < 3) {
-    const randomNum = getRandomNum(1, 20);
-    sendQuestion(randomNum);
-    ans = getAnswer();
-    if (!['yes', 'no'].includes(ans)) {
-      reportFail(ans, randomNum % 2 === 0 ? 'yes' : 'no', userName);
-      break;
+
+  for (let questionNum = 0; questionNum < 3; questionNum += 1) {
+    const num = getRandomNum(1, 30);
+    sendQuestion(num);
+    const ans = getAnswer();
+    const correctAnswer = isEven(num) ? 'yes' : 'no';
+
+    if (ans !== correctAnswer) {
+      reportFail(ans, correctAnswer, userName);
+      return;
     }
-    if (
-      (ans === 'yes' && randomNum % 2 === 0) || (ans === 'no' && randomNum % 2 !== 0)
-    ) {
-      reportGoodStep();
-      goodCount += 1;
-    } else if (ans === 'yes') {
-      reportFail('yes', 'no', userName);
-      break;
-    } else {
-      reportFail('no', 'yes', userName);
-      break;
-    }
-    count += 1;
+    reportGoodStep();
   }
-  if (goodCount === 3) {
-    reportWin(userName);
-  }
+  reportWin(userName);
 };
 export default evenGame;
