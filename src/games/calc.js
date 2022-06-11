@@ -8,6 +8,19 @@ import {
 } from '../index.js';
 import getRandomNum from '../getRandomNum.js';
 
+const calculateExpression = (randomNum1, randomNum2, sign) => {
+  switch (sign) {
+    case '+':
+      return randomNum1 + randomNum2;
+    case '-':
+      return randomNum1 - randomNum2;
+    case '*':
+      return randomNum1 * randomNum2;
+    default:
+      return null;
+  }
+};
+
 const calc = () => {
   let count = 0;
   let goodCount = 0;
@@ -22,20 +35,7 @@ const calc = () => {
     sendQuestion(`${randomNum1} ${sign} ${randomNum2}`);
     ans = getAnswer();
     let result = 0;
-
-    switch (sign) {
-      case '+':
-        result = randomNum1 + randomNum2;
-        break;
-      case '-':
-        result = randomNum1 - randomNum2;
-        break;
-      case '*':
-        result = randomNum1 * randomNum2;
-        break;
-      default:
-        result = null;
-    }
+    result = calculateExpression(randomNum1, randomNum2, sign);
     if (result === Number(ans)) {
       reportGoodStep();
       goodCount += 1;
