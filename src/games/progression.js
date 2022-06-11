@@ -28,20 +28,10 @@ const progressionGame = () => {
   };
 
   while (count < 3) {
-    // const randomNum = getRandomNum(1, 20);
-    // const progStep = getRandomNum(1, 10);
     const randomIndex = getRandomNum(0, 9);
-    // const gameArray = [];
-    // gameArray.push(randomNum);
-    // while (gameArray.length < 10) {
-    //   let lastEl = gameArray.at(-1);
-    //   gameArray.push((lastEl += progStep));
-    // }
     const gameArray = createGameArray();
-
     const item = gameArray[randomIndex];
     gameArray[randomIndex] = '..';
-
     sendQuestion(gameArray.join(' '));
     ans = getAnswer();
 
