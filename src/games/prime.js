@@ -27,8 +27,7 @@ const primeGame = () => {
       reportFail(ans, 'yes', userName);
       break;
     } else if (
-      !primeNum.includes(randomNum)
-      && !availableAnswers.includes(ans)
+      !primeNum.includes(randomNum) && !availableAnswers.includes(ans)
     ) {
       reportFail(ans, 'no', userName);
       break;

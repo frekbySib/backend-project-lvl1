@@ -8,24 +8,24 @@ import {
 } from '../index.js';
 import getRandomNum from '../getRandomNum.js';
 
+const createGameArray = () => {
+  const randomNum = getRandomNum(1, 20);
+  const progStep = getRandomNum(1, 10);
+  const gameArray = [];
+  gameArray.push(randomNum);
+  while (gameArray.length < 10) {
+    let lastEl = gameArray.at(-1);
+    gameArray.push((lastEl += progStep));
+  }
+  return gameArray;
+};
+
 const progressionGame = () => {
   let count = 0;
   let goodCount = 0;
   let ans;
   const userName = greeting();
   console.log('What number is missing in the progression?');
-
-  const createGameArray = () => {
-    const randomNum = getRandomNum(1, 20);
-    const progStep = getRandomNum(1, 10);
-    const gameArray = [];
-    gameArray.push(randomNum);
-    while (gameArray.length < 10) {
-      let lastEl = gameArray.at(-1);
-      gameArray.push((lastEl += progStep));
-    }
-    return gameArray;
-  };
 
   while (count < 3) {
     const randomIndex = getRandomNum(0, 9);
