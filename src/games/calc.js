@@ -34,8 +34,7 @@ const calc = () => {
     const sign = signs[getRandomNum(0, 2)];
     sendQuestion(`${randomNum1} ${sign} ${randomNum2}`);
     ans = getAnswer();
-    let result = 0;
-    result = calculateExpression(randomNum1, randomNum2, sign);
+    const result = calculateExpression(randomNum1, randomNum2, sign);
     if (result === Number(ans)) {
       reportGoodStep();
       goodCount += 1;
