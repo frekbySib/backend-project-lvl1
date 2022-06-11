@@ -8,10 +8,15 @@ import {
 } from '../index.js';
 import getRandomNum from '../getRandomNum.js';
 
+const getNod = (arg1, arg2) => {
+  if (arg2 > arg1) return getNod(arg2, arg1);
+  if (!arg2) return arg1;
+  return getNod(arg2, arg1 % arg2);
+};
+
 const gcdGame = () => {
   let count = 0;
   let goodCount = 0;
-  let ans;
   const userName = greeting();
   console.log('Find the greatest common divisor of given numbers.');
 
@@ -19,14 +24,7 @@ const gcdGame = () => {
     const x = getRandomNum(1, 20);
     const y = getRandomNum(1, 20);
     sendQuestion(`${x} ${y}`);
-    ans = getAnswer();
-
-    const getNod = (arg1, arg2) => {
-      if (arg2 > arg1) return getNod(arg2, arg1);
-      if (!arg2) return arg1;
-      return getNod(arg2, arg1 % arg2);
-    };
-
+    const ans = getAnswer();
     const nod = getNod(x, y);
 
     if (Number(ans) === nod) {
