@@ -5,7 +5,8 @@
 
 # REQUIREMENTS
 
-node v16+
+Have at least node.js version 16 installed: [Download](https://nodejs.org)  
+To get your version number type `node --version` in your console or terminal. 
 
 ## INSTALL
 
@@ -28,17 +29,17 @@ node v16+
 
 ### Preview
 
-#### Игра: Проверка на чётность
-[![asciicast](https://asciinema.org/a/gg4ACHo8cjyveSVjUhB0Q3RfY)
+#### Game: Parity Check | :ru: Игра: Проверка на чётность
+[![asciicast](https://asciinema.org/a/499582.svg)](https://asciinema.org/a/499582)
 
-#### Игра: "Калькулятор"
-[![asciicast](https://asciinema.org/a/3tvWM7b1SNXD90oxWblEoV0wn)
+#### Game: "Calculator" | :ru: Игра: "Калькулятор"
+[![asciicast](https://asciinema.org/a/500068.svg)](https://asciinema.org/a/500068)
 
-#### Игра: "НОД"
-[![asciicast](https://asciinema.org/a/KVEUDwVxuJcqQgki81oK3cgEq)
+#### Game "Greatest common divisor" | :ru: Игра: "НОД"
+[![asciicast](https://asciinema.org/a/500070.svg)](https://asciinema.org/a/500070)
 
-#### Игра: "Арифметическая прогрессия"
-[![asciicast](https://asciinema.org/a/HgjcHb906KkI8Ew4sctLIdNXu)
+#### Game: "Arithmetic progression" | :ru: Игра: "Арифметическая прогрессия"
+[![asciicast](https://asciinema.org/a/500072.svg)](https://asciinema.org/a/500072)
 
-#### Игра: "Простое ли число?"
-[![asciicast](https://asciinema.org/a/3p8Nt0qAHzIvITDgB1GB7gYp6)
+#### Game: "Is it a prime number?" | :ru: Игра: "Простое ли число?"
+[![asciicast](https://asciinema.org/a/500074.svg)](https://asciinema.org/a/500074)
