@@ -1,43 +1,23 @@
-import {
-  greeting,
-  sendQuestion,
-  getAnswer,
-  reportGoodStep,
-  reportFail,
-  reportWin,
-} from '../index.js';
 import getRandomNum from '../getRandomNum.js';
+import { playGame, questionsCount } from '../index.js';
 
-const getNod = (arg1, arg2) => {
-  if (arg2 > arg1) return getNod(arg2, arg1);
-  if (!arg2) return arg1;
-  return getNod(arg2, arg1 % arg2);
+const findGCD = (num1, num2) => {
+  if (num2 === 0) return num1;
+  return findGCD(num2, num1 % num2);
 };
 
-const gcdGame = () => {
-  let count = 0;
-  let goodCount = 0;
-  const userName = greeting();
-  console.log('Find the greatest common divisor of given numbers.');
+export default () => {
+  const rule = 'Find the greatest common divisor of given numbers.';
 
-  while (count < 3) {
-    const x = getRandomNum(1, 20);
-    const y = getRandomNum(1, 20);
-    sendQuestion(`${x} ${y}`);
-    const ans = getAnswer();
-    const nod = getNod(x, y);
+  const questionsAndAnswers = [];
 
-    if (Number(ans) === nod) {
-      reportGoodStep();
-      goodCount += 1;
-    } else {
-      reportFail(ans, nod, userName);
-      break;
-    }
-    count += 1;
+  for (let questionNum = 0; questionNum < questionsCount; questionNum += 1) {
+    const num1 = getRandomNum(1, 20);
+    const num2 = getRandomNum(1, 20);
+    const question = `${num1} ${num2}`;
+    const answer = findGCD(num1, num2);
+    questionsAndAnswers.push([question, String(answer)]);
   }
-  if (goodCount === 3) {
-    reportWin(userName);
-  }
+
+  playGame(rule, questionsAndAnswers);
 };
-export default gcdGame;

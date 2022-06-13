@@ -1,51 +1,38 @@
-import {
-  greeting,
-  sendQuestion,
-  getAnswer,
-  reportGoodStep,
-  reportFail,
-  reportWin,
-} from '../index.js';
 import getRandomNum from '../getRandomNum.js';
+import { playGame, questionsCount } from '../index.js';
 
-const createGameArray = () => {
-  const randomNum = getRandomNum(1, 20);
-  const progStep = getRandomNum(1, 10);
-  const gameArray = [];
-  gameArray.push(randomNum);
-  while (gameArray.length < 10) {
-    let lastEl = gameArray.at(-1);
-    gameArray.push((lastEl += progStep));
+const buildProgression = (start, step, length) => {
+  const progression = [];
+
+  for (let i = 0; i < length; i += 1) {
+    progression.push(start + step * i);
   }
-  return gameArray;
+
+  return progression;
 };
 
-const progressionGame = () => {
-  let count = 0;
-  let goodCount = 0;
-  let ans;
-  const userName = greeting();
-  console.log('What number is missing in the progression?');
+export default () => {
+  const rule = 'What number is missing in the progression?';
 
-  while (count < 3) {
-    const randomIndex = getRandomNum(0, 9);
-    const gameArray = createGameArray();
-    const item = gameArray[randomIndex];
-    gameArray[randomIndex] = '..';
-    sendQuestion(gameArray.join(' '));
-    ans = getAnswer();
+  const questionsAndAnsers = [];
 
-    if (Number(ans) === item) {
-      reportGoodStep();
-      goodCount += 1;
-    } else {
-      reportFail(ans, item, userName);
-      break;
-    }
-    count += 1;
+  for (let questionNum = 0; questionNum < questionsCount; questionNum += 1) {
+    const progressionStart = getRandomNum(1, 20);
+    const progressionStep = getRandomNum(1, 10);
+    const progressionLength = getRandomNum(5, 10);
+    const progression = buildProgression(
+      progressionStart,
+      progressionStep,
+      progressionLength,
+    );
+    const indexOfAnswer = getRandomNum(0, progressionLength - 1);
+    const questionProgression = [...progression];
+    questionProgression[indexOfAnswer] = '..';
+    const question = questionProgression.join(' ');
+    const answer = progression[indexOfAnswer];
+
+    questionsAndAnsers.push([question, String(answer)]);
   }
-  if (goodCount === 3) {
-    reportWin(userName);
-  }
+
+  playGame(rule, questionsAndAnsers);
 };
-export default progressionGame;

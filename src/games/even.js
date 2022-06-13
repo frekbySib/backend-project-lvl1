@@ -1,31 +1,19 @@
-import {
-  greeting,
-  sendQuestion,
-  getAnswer,
-  reportGoodStep,
-  reportFail,
-  reportWin,
-} from '../index.js';
 import getRandomNum from '../getRandomNum.js';
+import { playGame, questionsCount } from '../index.js';
 
 const isEven = (num) => num % 2 === 0;
 
-const evenGame = () => {
-  const userName = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+export default () => {
+  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  for (let questionNum = 0; questionNum < 3; questionNum += 1) {
+  const questionsAndAnswers = [];
+
+  for (let questionNum = 0; questionNum < questionsCount; questionNum += 1) {
     const num = getRandomNum(1, 30);
-    sendQuestion(num);
-    const ans = getAnswer();
-    const correctAnswer = isEven(num) ? 'yes' : 'no';
-
-    if (ans !== correctAnswer) {
-      reportFail(ans, correctAnswer, userName);
-      return;
-    }
-    reportGoodStep();
+    const question = num;
+    const answer = isEven(num) ? 'yes' : 'no';
+    questionsAndAnswers.push([question, answer]);
   }
-  reportWin(userName);
+
+  playGame(rule, questionsAndAnswers);
 };
-export default evenGame;

@@ -1,12 +1,5 @@
-import {
-  greeting,
-  sendQuestion,
-  getAnswer,
-  reportGoodStep,
-  reportFail,
-  reportWin,
-} from '../index.js';
 import getRandomNum from '../getRandomNum.js';
+import { playGame, questionsCount } from '../index.js';
 
 const isPrime = (num) => {
   if (num < 2) return false;
@@ -20,24 +13,17 @@ const isPrime = (num) => {
   return true;
 };
 
-const primeGame = () => {
-  let goodCount = 0;
-  const userName = greeting();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+export default () => {
+  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  while (goodCount < 3) {
-    const num = getRandomNum(1, 10);
-    sendQuestion(num);
-    const userAnswer = getAnswer();
-    const correctAnswer = isPrime(num) ? 'yes' : 'no';
+  const questionsAndAnsers = [];
 
-    if (userAnswer !== correctAnswer) {
-      reportFail(userAnswer, correctAnswer, userName);
-      return;
-    }
-    reportGoodStep();
-    goodCount += 1;
+  for (let questionNum = 0; questionNum < questionsCount; questionNum += 1) {
+    const num = getRandomNum(1, 30);
+    const question = num;
+    const answer = isPrime(num) ? 'yes' : 'no';
+    questionsAndAnsers.push([question, answer]);
   }
-  reportWin(userName);
+
+  playGame(rule, questionsAndAnsers);
 };
-export default primeGame;

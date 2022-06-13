@@ -1,32 +1,30 @@
 import readlineSync from 'readline-sync';
 
-// Приветствие
-export const greeting = () => {
+const questionsCount = 3;
+
+const playGame = (rule, questionsAndAnswers) => {
   console.log('Welcome to the Brain Games!');
-  const user = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${user}!`);
-  return user;
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+
+  console.log(rule);
+  /* eslint-disable-next-line */
+  for (const questionAndAnswer of questionsAndAnswers) {
+    const [question, correctAnswer] = questionAndAnswer;
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (userAnswer !== correctAnswer) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`
+      );
+      return;
+    }
+
+    console.log('Correct!');
+  }
+
+  console.log(`Congratulations, ${name}!`);
 };
 
-// Задать вопрос игроку.
-export const sendQuestion = (str) => console.log(`Question: ${str}`);
-
-// Получить ответ на вопрос от игрока
-export const getAnswer = () => readlineSync.question('Your answer: ');
-
-// Уведомить о корректном ответе
-export const reportGoodStep = () => {
-  console.log('Correct!');
-};
-
-// Расстроить
-export const reportFail = (atr1, atr2, userName) => {
-  console.log(
-    `'${atr1}' is wrong answer ;(. Correct answer was '${atr2}'.\nLet's try again, ${userName}!`,
-  );
-};
-
-// Уведомить о победе в игре
-export const reportWin = (userName) => {
-  console.log(`Congratulations, ${userName}!`);
-};
+export { playGame, questionsCount };
