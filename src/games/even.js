@@ -6,13 +6,12 @@ const isEven = (num) => num % 2 === 0;
 const evenGame = () => {
   const questionsAndAnswers = [];
   const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-  let step = 0;
-  while (step < questionsCount) {
+
+  for (let step = 0; step < questionsCount; step += 1) {
     const num = getRandomNum(1, 30);
     const question = num;
     const answer = isEven(num) ? 'yes' : 'no';
     questionsAndAnswers.push([question, answer]);
-    step += 1;
   }
 
   playGame(rule, questionsAndAnswers);
