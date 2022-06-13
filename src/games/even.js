@@ -3,10 +3,9 @@ import { playGame, questionsCount } from '../index.js';
 
 const isEven = (num) => num % 2 === 0;
 
-export default () => {
-  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-
+const evenGame = () => {
   const questionsAndAnswers = [];
+  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
   for (let questionNum = 0; questionNum < questionsCount; questionNum += 1) {
     const num = getRandomNum(1, 30);
@@ -17,3 +16,4 @@ export default () => {
 
   playGame(rule, questionsAndAnswers);
 };
+export default evenGame;
